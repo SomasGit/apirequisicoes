@@ -1,0 +1,76 @@
+# Obter a lista de colaboradores
+GET http://localhost:3000/api/colaboradores
+Content-Type: application/json
+###
+
+# Inserir novo usuário
+POST http://localhost:3000/api/colaboradores
+Content-Type: application/json
+
+{
+ "nome": "Luis Somenzi", "email": "183000@upf.br",
+ "celular": "99999-9999", "senha": "1234",
+ "dataHoraCad": "2021-01-25T17:32:25.000Z"
+}
+###
+
+# Alterar usuário
+PUT http://localhost:3000/api/colaboradores
+Content-Type: application/json
+{
+ "_id": "5f6cba8798eca62ccce84ba7",
+ "nome": "Luis Somenzi",
+ "email": "183016@upf.br",
+ "celular": "54 9999 9999"
+}
+###
+
+# Excluir um usuário
+DELETE http://localhost:3000/api/colaboradores/5f5a96dd5e818fae8fc6e1db
+Content-Type: application/json
+###
+
+# Obter pelo id de usuário
+GET http://localhost:3000/api/colaboradores/5f6cb80e07cee54810920f5f
+###
+
+# Obter usuários filtrando
+GET http://localhost:3000/api/colaboradores/filtro/luis
+Content-Type: application/json
+###
+
+# Usuário sem nome requerido.
+POST http://localhost:3000/api/colaboradores
+Content-Type: application/json
+{
+ "nome": "",
+ "email": "183016@upf.br",
+ "celular": "99999-9999",
+ "senha": "1234",
+ "dataHoraCad": "2021-01-25T17:32:25.000Z"
+}
+###
+
+# Usuário com email duplicado.
+POST http://localhost:3000/api/colaboradores
+Content-Type: application/json
+{
+ "nome": "Jaqson",
+ "email": "jaqson@upf.br",
+ "celular": "99999-9999",
+ "senha": "123",
+ "dataHoraCad": "2021-01-25T17:32:25.000Z"
+}
+###
+
+# Usuário com data inválida
+POST http://localhost:3000/api/colaboradores
+Content-Type: application/json
+{
+ "nome": "Jaqson",
+ "email": "jaqson.outro@upf.br",
+ "celular": "99999-9999",
+ "senha": "123",
+ "dataHoraCad": "2021-20-25T17:32:25.000Z"
+}
+###
